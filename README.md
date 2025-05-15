@@ -9,7 +9,7 @@ A demonstration of how to copy datasets from an ERDDAP server to another ERDDAP 
    1. <https://erddap.cencoos.org/erddap/index.html> 
 1. Identify where to host replicate service
    1. AWS S3?
-1. Establish service
+1. Establish service/machine
    1. ```
       Architecture:        x86_64
       CPU op-mode(s):      32-bit, 64-bit
@@ -69,46 +69,31 @@ A demonstration of how to copy datasets from an ERDDAP server to another ERDDAP 
    1. ```git clone https://github.com/ioos/erddap-gold-standard.git```
 1. Create a directory on service to copy data to.
    1. ```mkdir repo_copy/```
-1. Copy data to that directory.
-   1. see `copy_erddap_data.py` 
-1. Run GenerateDatasetsXml.sh
+1. Copy appropriate data to that directory.
+   1. see `copy_erddap_data.py`
+   2. Here we download the netCDF version of the dataset because it contains all of the appropriate metadata along with the data. It is the most robust version of the dataset to download.
+1. Run GenerateDatasetsXml.sh (see this [script](https://github.com/MathewBiddle/erddap_copy/blob/main/GenerateDatasetsXml_script.sh). 
    1. ```
-      Which EDDType (default="EDDGridFromDap")
-      ? EDDTableFromMultidimNcFiles
-      Starting directory (default="")
-      ? /dataset
-      File name regex (e.g., ".*\.nc") (default="")
-      ? .*\.nc
-      Full file name of one file (or leave empty to use first matching fileName) (default="")
-      ? ""
-      DimensionsCSV (or "" for default) (default="")
-      ? ""
-      ReloadEveryNMinutes (e.g., 10080) (default="")
-      ? ""
-      PreExtractRegex (default="")
-      ? ""
-      PostExtractRegex (default="")
-      ? ""
-      ExtractRegex (default="")
-      ? ""
-      Column name for extract (default="")
-      ? ""
-      Remove missing value rows (true|false) (default="")
-      ? ""
-      Sort files by sourceNames (default="")
-      ? ""
-      infoUrl (default="")
-      ? erddap.com
-      institution (default="")
-      ? US IOOS
-      summary (default="")
-      ? ""
-      title (default="")
-      ? ""
-      standardizeWhat (-1 to get the class' default) (default="")
-      ? ""
-      treatDimensionsAs (default="")
-      ? ""
-      cacheFromUrl (default="")
-      ? ""
+      ./GenerateDatasetsXml_script.sh
       ```
+   1. This saves an xml file to **logs/GenerateDatasetXml.out**.   
+1. Copy the xml snippet somewhere you can edit it
+   1. ```cp logs/GenerateDatasetsXml.out xml_by_dataset/bodega-head-intertidal-shore-sta.xml```
+1. Edit the xml to reflect any changes. You can adopt all of ERDDAPs recommendations by uncommenting out the xml comments.
+   1. ```sed 's/<!-- /</g' bodega-head-intertidal-shore-sta.xml | sed 's/ -->/>/g' > bodega-head-intertidal-shore-sta_IOOS.xml```
+   2. Review the metadata and xml formatting to ensure it is correct.
+   1. Set `datasetID` to something reasonable. (e.g. "bodega-head-intertidal-shore-sta_IOOS")
+1. Insert the edited xml snippet into datasets.xml
+   1. See https://github.com/MathewBiddle/sandbox/blob/main/xml_insert.py and https://github.com/MathewBiddle/sandbox/blob/main/script2insert.py
+   1. ```
+      $ python ../python_tools/script2insert.py
+      ingesting ../erddap/content/datasets.xml
+      ingesting ../xml_by_dataset/bodega-head-intertidal-shore-sta_IOOS.xml
+      Inserting snippet for datasetID = bodega-head-intertidal-shore-sta_IOOS into ../erddap/content/datasets.xml
+     ```
+1. Flag dataset for reloading
+   1. ```
+      erddap-gold-standard/xml_by_dataset$ touch ../erddap/data/hardFlag/bodega-head-intertidal-shore-sta_IOOS
+      ```
+1. Review dataset on your ERDDAP!
+   1. https://erddap.ioos.us/erddap/tabledap/bodega-head-intertidal-shore-sta_IOOS.html
