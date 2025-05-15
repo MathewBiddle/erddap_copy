@@ -6,12 +6,16 @@ A demonstration of how to copy datasets from an ERDDAP server to another ERDDAP 
    1. ERDDAP ✅
 1. Find dataset to replicate.
    1. <https://erddap.nanoos.org/erddap/info/index.html>
-   1. <https://erddap.cencoos.org/erddap/index.html>  <-- picking the dataset <http://erddap.cencoos.org/erddap/info/bodega-head-intertidal-shore-sta/index.html>
+   1. <https://erddap.cencoos.org/erddap/index.html>
+      1. picking the dataset to start <http://erddap.cencoos.org/erddap/info/bodega-head-intertidal-shore-sta/index.html>
 1. Identify where to host replicate service
-   1. AWS S3?
+   1. AWS EC2
 1. Establish service/machine
    1. What are the requirements?
-   2. Here is the system currently have deployed:
+      1. Linux
+      2. Sudo
+      3. webconnection
+   3. Here is the system currently have deployed:
       ```
       Architecture:        x86_64
       CPU op-mode(s):      32-bit, 64-bit
@@ -59,21 +63,21 @@ A demonstration of how to copy datasets from an ERDDAP server to another ERDDAP 
               BIOS Revision: 1.0
         ```
         
-1. Install Git on the instance 
+1. Install Git 
    1. https://git-scm.com/
-1. Install Docker on the instance
+1. Install Docker 
    1. https://www.docker.com/
 1. Install Docker compose
    1. https://docs.docker.com/compose/install/ 
-1. Optional - install miniforge
+1. _Optional_ - install miniforge
    1. https://github.com/conda-forge/miniforge?tab=readme-ov-file#install 
 1. Clone erddap-gold-standard repo
    1. ```git clone https://github.com/ioos/erddap-gold-standard.git```
 1. Create a directory on service to copy data to.
    1. ```
       cd erddap-gold-standard/datasets/
-      mkdir repo_copy/
-      cd repo_copy/
+      mkdir erddap_copy/
+      cd erddap_copy/
       ```
 1. Copy appropriate data in that directory.
    1. see [`copy_erddap_data.py`](https://github.com/MathewBiddle/erddap_copy/blob/main/copy_erddap_data.py)
@@ -104,3 +108,4 @@ A demonstration of how to copy datasets from an ERDDAP server to another ERDDAP 
       ```
 1. Review dataset on your ERDDAP!
    1. https://erddap.ioos.us/erddap/tabledap/bodega-head-intertidal-shore-sta_IOOS.html
+1. Compare it to the source and see what's different. http://erddap.cencoos.org/erddap/info/bodega-head-intertidal-shore-sta/index.html
