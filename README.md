@@ -6,11 +6,13 @@ A demonstration of how to copy datasets from an ERDDAP server to another ERDDAP 
    1. ERDDAP ✅
 1. Find dataset to replicate.
    1. <https://erddap.nanoos.org/erddap/info/index.html>
-   1. <https://erddap.cencoos.org/erddap/index.html> 
+   1. <https://erddap.cencoos.org/erddap/index.html>  <-- picking the dataset <http://erddap.cencoos.org/erddap/info/bodega-head-intertidal-shore-sta/index.html>
 1. Identify where to host replicate service
    1. AWS S3?
 1. Establish service/machine
-   1. ```
+   1. What are the requirements?
+   2. Here is the system currently have deployed:
+      ```
       Architecture:        x86_64
       CPU op-mode(s):      32-bit, 64-bit
       Byte Order:          Little Endian
@@ -68,15 +70,20 @@ A demonstration of how to copy datasets from an ERDDAP server to another ERDDAP 
 1. Clone erddap-gold-standard repo
    1. ```git clone https://github.com/ioos/erddap-gold-standard.git```
 1. Create a directory on service to copy data to.
-   1. ```mkdir repo_copy/```
-1. Copy appropriate data to that directory.
-   1. see `copy_erddap_data.py`
-   2. Here we download the netCDF version of the dataset because it contains all of the appropriate metadata along with the data. It is the most robust version of the dataset to download.
+   1. ```
+      cd erddap-gold-standard/datasets/
+      mkdir repo_copy/
+      cd repo_copy/
+      ```
+1. Copy appropriate data in that directory.
+   1. see [`copy_erddap_data.py`](https://github.com/MathewBiddle/erddap_copy/blob/main/copy_erddap_data.py)
+      1. Here we download the netCDF version of the dataset because it contains all of the appropriate metadata along with the data. It is the most robust version of the dataset to download.
 1. Run GenerateDatasetsXml.sh (see this [script](https://github.com/MathewBiddle/erddap_copy/blob/main/GenerateDatasetsXml_script.sh). 
    1. ```
       ./GenerateDatasetsXml_script.sh
       ```
-   1. This saves an xml file to **logs/GenerateDatasetXml.out**.   
+   1. Point GenerateDatasetsXml.sh to the netCDF file you just downloaded.
+   2. This saves a draft xml file to **logs/GenerateDatasetXml.out**.   
 1. Copy the xml snippet somewhere you can edit it
    1. ```cp logs/GenerateDatasetsXml.out xml_by_dataset/bodega-head-intertidal-shore-sta.xml```
 1. Edit the xml to reflect any changes. You can adopt all of ERDDAPs recommendations by uncommenting out the xml comments.
