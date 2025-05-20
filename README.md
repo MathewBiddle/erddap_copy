@@ -1,7 +1,14 @@
 # erddap_copy
 A demonstration of how to copy datasets from an ERDDAP server to another ERDDAP server.
 
+## A word of caution
+* Always check with the ERDDAP administrator for the dataset you are attempting to copy.
+* Ensure you preserve associated metadata and contacts for citability.
+* Use this with extreme _caution_. Data duplication is no joke.
+
 ## Step-by-step
+
+### Stand up ERDDAP
 1. Identify service to replicate.
    1. ERDDAP ✅
 1. Find dataset to replicate.
@@ -75,6 +82,42 @@ A demonstration of how to copy datasets from an ERDDAP server to another ERDDAP 
 1. Clone [erddap-gold-standard](https://github.com/ioos/erddap-gold-standard) repo
    1. ```git clone https://github.com/ioos/erddap-gold-standard.git```
    2. Edit `docker_compose.yml` to reflect the DNS and any port forwarding to make your ERDDAP public.
+      
+### Build datasets.xml
+
+Here you have a few options for how to build the datasets.xml file. 
+
+#### Let ERDDAP do the work
+
+Caveats:
+* Takes some time to load the first time around.
+* This becomes an identical copy of the source data.
+
+1. Build an xml snippet following the guidelines for using [`EDDTableCopy`](https://erddap.github.io/docs/server-admin/datasets#eddtablecopy) and [`EDDTableFromErddap`](https://erddap.github.io/docs/server-admin/datasets#eddfromerddap).
+   1. What you will do is nest the `EDDTableFromErddap` inside of the `EDDTableCopy` to look for the data and copy over to create a new dataset on your local ERDDAP. 
+   1. Keep an eye on how you set the `<extractDestinationNames>`. If you set it to something extremely granular (eg. time), it will create a local file for each unique instance of that value. Essentially what ERDDAP does is creates a file composed of all the rows that match the unique instance of that value. So, if you have a dataset from 2008 to 2015 collecting data every 10 mins, the system will copy that data over into files that have one unique `time` (ie. a bazillion files). Here, I know that the dataset is representative of a single station, so I set `<extractDestinationNames>station latitude longitude</extractDestinationNames>`, essentially creating one file on my local system.
+   1. The dataset will be copied to `erddap/data/copy/[datasetID]/[station]/[latitude]/[longitude]` (eg. `erddap/data/copy/bodega-head-intertidal-shore-sta_EDDTableCopy/x-0/38.3187/-123.0742.nc`).
+   1. `EDDTableCopy` knows to look at that location for the data and load it in automatically. 
+
+Below is an example xml snippet of how to copy [this dataset](http://erddap.cencoos.org/erddap/tabledap/bodega-head-intertidal-shore-sta).
+```xml
+  <dataset type="EDDTableCopy" datasetID="bodega-head-intertidal-shore-sta_EDDTableCopy" active="true">
+    <reloadEveryNMinutes>10080</reloadEveryNMinutes>
+    <extractDestinationNames>station latitude longitude</extractDestinationNames>
+    <checkSourceData>true</checkSourceData>
+    <dataset type="EDDTableFromErddap" datasetID="bodega-head-intertidal-shore-sta1" active="true">
+      <sourceUrl>http://erddap.cencoos.org/erddap/tabledap/bodega-head-intertidal-shore-sta</sourceUrl>
+    </dataset>
+  </dataset>
+```
+
+#### Manual hard-copy of data
+This uses python to search for relevant datasets and download them as netCDF files to your local system. Then, builds the dataset.xml snippet for the dataset.
+
+Caveats:
+* Metadata must be manually curated in the xml snippet.
+* You take a little more ownership of the data.
+
 1. Create a directory to copy data to.
    1. ```
       cd erddap-gold-standard/datasets/
@@ -96,6 +139,9 @@ A demonstration of how to copy datasets from an ERDDAP server to another ERDDAP 
    1. ```sed 's/<!-- /</g' bodega-head-intertidal-shore-sta.xml | sed 's/ -->/>/g' > bodega-head-intertidal-shore-sta_IOOS.xml```
    2. Review the metadata and xml formatting to ensure it is correct.
    1. Set `datasetID` to something reasonable. (e.g. "bodega-head-intertidal-shore-sta_IOOS")
+
+### Adding the dataset to ERDDAP and review
+
 1. Insert the edited xml snippet into datasets.xml
    1. See https://github.com/MathewBiddle/sandbox/blob/main/xml_insert.py and https://github.com/MathewBiddle/sandbox/blob/main/script2insert.py
    1. ```
@@ -103,11 +149,20 @@ A demonstration of how to copy datasets from an ERDDAP server to another ERDDAP 
       ingesting ../erddap/content/datasets.xml
       ingesting ../xml_by_dataset/bodega-head-intertidal-shore-sta_IOOS.xml
       Inserting snippet for datasetID = bodega-head-intertidal-shore-sta_IOOS into ../erddap/content/datasets.xml
+      $
+      $ python ../python_tools/script2insert.py
+      ingesting ../erddap/content/datasets.xml
+      ingesting ../xml_by_dataset/bodega-head-intertidal-shore-sta_EDDTableCopy.xml
+      Inserting snippet for datasetID = bodega-head-intertidal-shore-sta_EDDTableCopy into ../erddap/content/datasets.xml
      ```
 1. Flag dataset for reloading
    1. ```
       erddap-gold-standard/xml_by_dataset$ touch ../erddap/data/hardFlag/bodega-head-intertidal-shore-sta_IOOS
+      erddap-gold-standard/xml_by_dataset$ touch ../erddap/data/hardFlag/bodega-head-intertidal-shore-sta_EDDTableCopy
       ```
 1. Review dataset on your ERDDAP!
-   1. https://erddap.ioos.us/erddap/tabledap/bodega-head-intertidal-shore-sta_IOOS.html
-1. Compare it to the source and see what's different. http://erddap.cencoos.org/erddap/info/bodega-head-intertidal-shore-sta/index.html
+   1. Letting ERDDAP do the work: https://erddap.ioos.us/erddap/tabledap/bodega-head-intertidal-shore-sta_EDDTableCopy.html
+   1. Manual hard-copy of data: https://erddap.ioos.us/erddap/tabledap/bodega-head-intertidal-shore-sta_IOOS.html
+   1. Compare those to the source and see what's different. http://erddap.cencoos.org/erddap/info/bodega-head-intertidal-shore-sta/index.html
+1. If something breaks?
+   1. Check the logs at `/erddap/data/logs/log.txt` or the status page (eg. https://erddap.ioos.us/erddap/status.html)
