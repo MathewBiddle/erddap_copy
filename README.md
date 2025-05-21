@@ -20,7 +20,7 @@ A demonstration of how to copy datasets from an ERDDAP server to another ERDDAP 
 1. Establish service/machine
    1. What are the requirements?
       1. Linux
-      2. Sudo
+      2. sudo privileges. 
       3. To make the ERDDAP public (TBD need to flush this out)
          1. Domain Name Service
    3. Here is the system currently have deployed:
@@ -87,7 +87,11 @@ A demonstration of how to copy datasets from an ERDDAP server to another ERDDAP 
 
 Here you have a few options for how to build the datasets.xml file. 
 
-#### Let ERDDAP do the work
+#### Using ERDDAP to copy dataset
+
+_Preferred option_
+
+A Jupyter Notebook walking through the process documented below can be found in this repository at [create_EDDTableCopy_snippets.ipynb](https://github.com/MathewBiddle/erddap_copy/blob/main/create_EDDTableCopy_snippets.ipynb).
 
 Caveats:
 * Takes some time to load the first time around.
@@ -113,6 +117,8 @@ Below is an example xml snippet of how to copy [this dataset](http://erddap.cenc
 
 #### Manual hard-copy of data
 This uses python to search for relevant datasets and download them as netCDF files to your local system. Then, builds the dataset.xml snippet for the dataset.
+
+A python script walking through the process documented below can be found in this repository at [copy_erddap_data.py](https://github.com/MathewBiddle/erddap_copy/blob/main/copy_erddap_data.py).
 
 Caveats:
 * Metadata must be manually curated in the xml snippet.
