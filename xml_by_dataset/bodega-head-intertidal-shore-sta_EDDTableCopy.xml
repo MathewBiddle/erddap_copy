@@ -1,0 +1,9 @@
+<dataset type="EDDTableCopy" datasetID="bodega-head-intertidal-shore-sta_EDDTableCopy" active="true">
+  <reloadEveryNMinutes>10080</reloadEveryNMinutes>
+  <extractDestinationNames>station latitude longitude</extractDestinationNames>
+  <checkSourceData>true</checkSourceData>
+  <dataset type="EDDTableFromErddap" datasetID="bodega-head-intertidal-shore-sta1" active="true">
+    <!-- Bodega Head Intertidal Shore Station -->
+    <sourceUrl>http://erddap.cencoos.org/erddap/tabledap/bodega-head-intertidal-shore-sta</sourceUrl>
+  </dataset>
+</dataset>
