@@ -87,6 +87,19 @@ A demonstration of how to copy datasets from an ERDDAP server to another ERDDAP 
 
 Here you have a few options for how to build the datasets.xml file. 
 
+#### Using ERDDAP to link to an existing ERDDAP dataset
+
+Caveats:
+* This only provides a link to the dataset on the source ERDDAP. It does not copy the data to the local system. If the source ERDDAP goes down or the dataset is unavailable, the local ERDDAP will respond with an unavailable dataset as well.
+* This is a good initial test for building the `EDDTableCopy`. If you successfully get this to work, you can insert it within the `EDDTableCopy` to copy the data locally.
+
+1. Build an xml snippet following the guidelines for using [`EDDTableFromErddap`](https://erddap.github.io/docs/server-admin/datasets#eddfromerddap).
+
+Below is the example xml snippet: 
+
+https://github.com/MathewBiddle/erddap_copy/blob/c99ea4e0a0b758760f3ffeb044df0e63b9364a5b/xml_by_dataset/bodega-head-intertidal-shore-sta_EDDTableFromErddap.xml#L1-L3
+
+
 #### Using ERDDAP to copy dataset
 
 _Preferred option_
@@ -103,17 +116,9 @@ Caveats:
    1. The dataset will be copied to `erddap/data/copy/[datasetID]/[station]/[latitude]/[longitude]` (eg. `erddap/data/copy/bodega-head-intertidal-shore-sta_EDDTableCopy/x-0/38.3187/-123.0742.nc`).
    1. `EDDTableCopy` knows to look at that location for the data and load it in automatically. 
 
-Below is an example xml snippet of how to copy [this dataset](http://erddap.cencoos.org/erddap/tabledap/bodega-head-intertidal-shore-sta).
-```xml
-  <dataset type="EDDTableCopy" datasetID="bodega-head-intertidal-shore-sta_EDDTableCopy" active="true">
-    <reloadEveryNMinutes>10080</reloadEveryNMinutes>
-    <extractDestinationNames>station latitude longitude</extractDestinationNames>
-    <checkSourceData>true</checkSourceData>
-    <dataset type="EDDTableFromErddap" datasetID="bodega-head-intertidal-shore-sta1" active="true">
-      <sourceUrl>http://erddap.cencoos.org/erddap/tabledap/bodega-head-intertidal-shore-sta</sourceUrl>
-    </dataset>
-  </dataset>
-```
+Below is the example xml snippet:
+
+https://github.com/MathewBiddle/erddap_copy/blob/c99ea4e0a0b758760f3ffeb044df0e63b9364a5b/xml_by_dataset/bodega-head-intertidal-shore-sta_EDDTableCopy.xml#L1-L9
 
 #### Manual hard-copy of data
 This uses python to search for relevant datasets and download them as netCDF files to your local system. Then, builds the dataset.xml snippet for the dataset.
@@ -146,9 +151,13 @@ Caveats:
    2. Review the metadata and xml formatting to ensure it is correct.
    1. Set `datasetID` to something reasonable. (e.g. "bodega-head-intertidal-shore-sta_IOOS")
 
+Below is the example xml snippet: 
+
+https://github.com/MathewBiddle/erddap_copy/blob/c99ea4e0a0b758760f3ffeb044df0e63b9364a5b/xml_by_dataset/bodega-head-intertidal-shore-sta_IOOS.xml#L1-L388
+
 ### Adding the dataset to ERDDAP and review
 
-1. Insert the edited xml snippet into datasets.xml
+1. Insert the xml snippet into datasets.xml
    1. See https://github.com/MathewBiddle/sandbox/blob/main/xml_insert.py and https://github.com/MathewBiddle/sandbox/blob/main/script2insert.py
    1. ```
       $ python ../python_tools/script2insert.py
@@ -167,7 +176,8 @@ Caveats:
       erddap-gold-standard/xml_by_dataset$ touch ../erddap/data/hardFlag/bodega-head-intertidal-shore-sta_EDDTableCopy
       ```
 1. Review dataset on your ERDDAP!
-   1. Letting ERDDAP do the work: https://erddap.ioos.us/erddap/tabledap/bodega-head-intertidal-shore-sta_EDDTableCopy.html
+   1. Letting ERDDAP do the copying: https://erddap.ioos.us/erddap/tabledap/bodega-head-intertidal-shore-sta_EDDTableCopy.html
+   1. ERDDAP providing a link to the source data (not actually hosting data on source ERDDAP): https://erddap.ioos.us/erddap/tabledap/bodega-head-intertidal-shore-sta_EDDTableFromErddap.html
    1. Manual hard-copy of data: https://erddap.ioos.us/erddap/tabledap/bodega-head-intertidal-shore-sta_IOOS.html
    1. Compare those to the source and see what's different. http://erddap.cencoos.org/erddap/info/bodega-head-intertidal-shore-sta/index.html
 1. If something breaks?
