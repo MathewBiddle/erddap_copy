@@ -80,7 +80,7 @@ A demonstration of how to copy datasets from an ERDDAP server to another ERDDAP 
 
 Here you have a few options for how to build the datasets.xml file. 
 
-#### Using ERDDAP to copy dataset
+#### Using ERDDAP to copy an ERDDAP dataset
 
 _Preferred option_
 
@@ -99,6 +99,20 @@ Caveats:
 Below is an example xml snippet:
 
 https://github.com/MathewBiddle/erddap_copy/blob/c99ea4e0a0b758760f3ffeb044df0e63b9364a5b/xml_by_dataset/bodega-head-intertidal-shore-sta_EDDTableCopy.xml#L1-L9
+
+#### Using ERDDAP to copy a remote file
+
+If source data are not hosted on an ERDDAP already, one could use [`<cacheFromUrl>`](https://erddap.github.io/docs/server-admin/datasets?_highlight=cachefromurl#cachefromurl) feature to have ERDDAP:
+
+1. Go to `<cacheFromUrl>` web address.
+1. Look for files mathcing `<fileNameRegex>`.
+1. Download the matching file to the directory specified in `<fileDir>`
+1. Loads the downloaded file using the appropriate ERDDAP class.
+1. Makes the data and metadata accessible on ERDDAP.
+
+Below is an example xml snippet:
+
+https://github.com/MathewBiddle/erddap_copy/blob/cd1e290369c42e5a54492afc6ff0640ba243eac6/xml_by_dataset/FC_cable_transport_2022.xml#L1-L88
 
 #### Using ERDDAP to link to an existing ERDDAP dataset
 
