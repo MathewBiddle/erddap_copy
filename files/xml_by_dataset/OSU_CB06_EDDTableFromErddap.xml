@@ -1,0 +1,3 @@
+<dataset type="EDDTableFromErddap" datasetID="OSU_CB06_EDDTableFromErddap" active="true">
+  <sourceUrl>https://erddap.nanoos.org/erddap/tabledap/OSU_CB06</sourceUrl>
+</dataset>

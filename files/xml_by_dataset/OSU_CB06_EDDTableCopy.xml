@@ -1,0 +1,9 @@
+<dataset type="EDDTableCopy" datasetID="OSU_CB06_EDDTableCopy" active="true">
+  <reloadEveryNMinutes>10080</reloadEveryNMinutes>
+  <extractDestinationNames>station latitude longitude</extractDestinationNames>
+  <checkSourceData>true</checkSourceData>
+  <dataset type="EDDTableFromErddap" datasetID="OSU_CB06" active="true">
+    <!-- NANOOS Mooring CB-06 -->
+    <sourceUrl>https://erddap.nanoos.org/erddap/tabledap/OSU_CB06</sourceUrl>
+  </dataset>
+</dataset>

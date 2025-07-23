@@ -1,0 +1,390 @@
+<dataset type="EDDTableFromMultidimNcFiles" datasetID="bodega-head-intertidal-shore-sta_IOOS" active="true">
+    <reloadEveryNMinutes>10080</reloadEveryNMinutes>
+    <updateEveryNMillis>10000</updateEveryNMillis>
+    <fileDir>/datasets/erddap_copy/</fileDir>
+    <fileNameRegex>.*.nc</fileNameRegex>
+    <recursive>true</recursive>
+    <pathRegex>.*</pathRegex>
+    <metadataFrom>last</metadataFrom>
+    <standardizeWhat>0</standardizeWhat>
+    <removeMVRows>true</removeMVRows>
+    <sortFilesBySourceNames></sortFilesBySourceNames>
+    <fileTableInMemory>false</fileTableInMemory>
+    <sourceAttributes>
+        <att name="cdm_data_type">TimeSeries</att>
+        <att name="cdm_timeseries_variables">station,longitude,latitude</att>
+        <att name="contributor_email">cencoos_communications@mbari.org,feedback@axiomdatascience.com</att>
+        <att name="contributor_name">Central &amp; Northern California Ocean Observing System (CeNCOOS),Axiom Data Science</att>
+        <att name="contributor_role">funder,processor</att>
+        <att name="contributor_role_vocabulary">NERC</att>
+        <att name="contributor_url">http://cencoos.org/,https://www.axiomdatascience.com</att>
+        <att name="Conventions">IOOS-1.2, CF-1.6, ACDD-1.3, NCCSV-1.2</att>
+        <att name="creator_institution">San Francisco State University (SFSU)</att>
+        <att name="creator_name">San Francisco State University (SFSU)</att>
+        <att name="creator_sector">academic</att>
+        <att name="creator_type">institution</att>
+        <att name="creator_url">http://www.sfsu.edu/</att>
+        <att name="defaultDataQuery">sea_surface_height_above_sea_level,sea_water_temperature,mass_concentration_of_chlorophyll_in_sea_water,sea_water_temperature_qc_agg,z,mass_concentration_of_chlorophyll_in_sea_water_qc_agg,time,sea_surface_height_above_sea_level_qc_agg&amp;time&gt;=max(time)-3days</att>
+        <att name="Easternmost_Easting" type="double">-123.0742</att>
+        <att name="featureType">TimeSeries</att>
+        <att name="geospatial_lat_max" type="double">38.3187</att>
+        <att name="geospatial_lat_min" type="double">38.3187</att>
+        <att name="geospatial_lat_units">degrees_north</att>
+        <att name="geospatial_lon_max" type="double">-123.0742</att>
+        <att name="geospatial_lon_min" type="double">-123.0742</att>
+        <att name="geospatial_lon_units">degrees_east</att>
+        <att name="geospatial_vertical_positive">up</att>
+        <att name="geospatial_vertical_units">m</att>
+        <att name="history">Downloaded from San Francisco State University (SFSU) at 
+2025-05-15T14:37:09Z https://www.cencoos.org/observations/sensor-platforms/shore-stations/
+2025-05-15T14:37:09Z http://erddap.cencoos.org/erddap/tabledap/bodega-head-intertidal-shore-sta.nc</att>
+        <att name="id" type="int">128550</att>
+        <att name="infoUrl">https://sensors.ioos.us/#metadata/128550/station</att>
+        <att name="institution">San Francisco State University (SFSU)</att>
+        <att name="license">The data may be used and redistributed for free but is not intended
+for legal use, since it may contain inaccuracies. Neither the data
+Contributor, ERD, NOAA, nor the United States Government, nor any
+of their employees or contractors, makes any warranty, express or
+implied, including warranties of merchantability and fitness for a
+particular purpose, or assumes any legal liability for the accuracy,
+completeness, or usefulness, of this information.</att>
+        <att name="naming_authority">com.axiomdatascience</att>
+        <att name="Northernmost_Northing" type="double">38.3187</att>
+        <att name="platform">fixed</att>
+        <att name="platform_name">Bodega Head Intertidal Shore Station</att>
+        <att name="platform_vocabulary">http://mmisw.org/ont/ioos/platform</att>
+        <att name="processing_level">Level 2</att>
+        <att name="publisher_institution">San Francisco State University (SFSU)</att>
+        <att name="publisher_name">San Francisco State University (SFSU)</att>
+        <att name="publisher_sector">academic</att>
+        <att name="publisher_type">institution</att>
+        <att name="publisher_url">http://www.sfsu.edu/</att>
+        <att name="references">https://www.cencoos.org/observations/sensor-platforms/shore-stations/,,https://www.cencoos.org/data/shore/intertidal/bodegahead,</att>
+        <att name="sourceUrl">https://www.cencoos.org/observations/sensor-platforms/shore-stations/</att>
+        <att name="Southernmost_Northing" type="double">38.3187</att>
+        <att name="standard_name_vocabulary">CF Standard Name Table v72</att>
+        <att name="station_id">128550</att>
+        <att name="summary">Timeseries data from &#39;Bodega Head Intertidal Shore Station&#39; (bodega-head-intertidal-shore-sta)</att>
+        <att name="time_coverage_end">2015-12-31T23:49:59Z</att>
+        <att name="time_coverage_start">2008-04-08T19:30:00Z</att>
+        <att name="title">Bodega Head Intertidal Shore Station</att>
+        <att name="Westernmost_Easting" type="double">-123.0742</att>
+    </sourceAttributes>
+    <addAttributes>
+        <att name="Conventions">IOOS-1.2, CF-1.10, ACDD-1.3, , COARDS</att>
+        <att name="creator_email">data.ioos@noaa.gov</att>
+        <att name="infoUrl">https://www.cencoos.org/observations/sensor-platforms/shore-stations/</att>
+        <att name="institution">USIOOS</att>
+        <att name="keywords">above, aggregate, aggregate_quality_flag, bodega, chemistry, chlorophyll, concentration, data, depth, earth, Earth Science &gt; Oceans &gt; Ocean Chemistry &gt; Chlorophyll, Earth Science &gt; Oceans &gt; Ocean Temperature &gt; Water Temperature, Earth Science &gt; Oceans &gt; Sea Surface Topography &gt; Sea Surface Height, flag, francisco, head, height, identifier, individual, intertidal, latitude, level, longitude, mass, mass_concentration_of_chlorophyll_in_sea_water, mass_concentration_of_chlorophyll_in_sea_water_qc_agg, mass_concentration_of_chlorophyll_in_sea_water_qc_tests, ocean, oceans, qartod, quality, quality_flag, san, science, sea, sea_surface_height_above_sea_level, sea_surface_height_above_sea_level_qc_agg, sea_surface_height_above_sea_level_qc_tests, sea_water_temperature, sea_water_temperature_qc_agg, sea_water_temperature_qc_tests, seawater, sfsu, shore, state, station, surface, temperature, tests, time, topography, university, usioos, water</att>
+        <att name="keywords_vocabulary">GCMD Science Keywords</att>
+        <att name="sourceUrl">(local files)</att>
+        <att name="subsetVariables">latitude, longitude, depth, mass_concentration_of_chlorophyll_in_sea_water_qc_agg, mass_concentration_of_chlorophyll_in_sea_water_qc_tests, sea_water_temperature_qc_agg, sea_water_temperature_qc_tests, sea_surface_height_above_sea_level_qc_agg, sea_surface_height_above_sea_level_qc_tests, station</att>
+    </addAttributes>
+    <dataVariable>
+        <sourceName>time</sourceName>
+        <destinationName>time</destinationName>
+        <dataType>double</dataType>
+        <sourceAttributes>
+            <att name="_ChunkSizes" type="int">512</att>
+            <att name="_CoordinateAxisType">Time</att>
+            <att name="actual_range" type="doubleList">1.207683E9 1.451605799E9</att>
+            <att name="axis">T</att>
+            <att name="calendar">gregorian</att>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Time</att>
+            <att name="standard_name">time</att>
+            <att name="time_origin">01-JAN-1970 00:00:00</att>
+            <att name="units">seconds since 1970-01-01T00:00:00Z</att>
+        </sourceAttributes>
+        <addAttributes>
+            <att name="_ChunkSizes">null</att>
+            <att name="colorBarMaximum" type="double">1.5E9</att>
+            <att name="colorBarMinimum" type="double">1.2E9</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>latitude</sourceName>
+        <destinationName>latitude</destinationName>
+        <dataType>double</dataType>
+        <sourceAttributes>
+            <att name="_CoordinateAxisType">Lat</att>
+            <att name="_FillValue" type="double">NaN</att>
+            <att name="actual_range" type="doubleList">38.3187 38.3187</att>
+            <att name="axis">Y</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Latitude</att>
+            <att name="standard_name">latitude</att>
+            <att name="units">degrees_north</att>
+        </sourceAttributes>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>longitude</sourceName>
+        <destinationName>longitude</destinationName>
+        <dataType>double</dataType>
+        <sourceAttributes>
+            <att name="_CoordinateAxisType">Lon</att>
+            <att name="_FillValue" type="double">NaN</att>
+            <att name="actual_range" type="doubleList">-123.0742 -123.0742</att>
+            <att name="axis">X</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Longitude</att>
+            <att name="standard_name">longitude</att>
+            <att name="units">degrees_east</att>
+        </sourceAttributes>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>z</sourceName>
+        <destinationName>depth</destinationName>
+        <dataType>double</dataType>
+        <sourceAttributes>
+            <att name="_ChunkSizes" type="int">512</att>
+            <att name="_CoordinateAxisType">Height</att>
+            <att name="_CoordinateZisPositive">up</att>
+            <att name="_FillValue" type="double">NaN</att>
+            <att name="actual_range" type="doubleList">-0.15 -0.15</att>
+            <att name="axis">Z</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Altitude</att>
+            <att name="positive">up</att>
+            <att name="standard_name">altitude</att>
+            <att name="units">m</att>
+        </sourceAttributes>
+        <addAttributes>
+            <att name="_ChunkSizes">null</att>
+            <att name="colorBarMaximum" type="double">8000.0</att>
+            <att name="colorBarMinimum" type="double">-8000.0</att>
+            <att name="colorBarPalette">Topography</att>
+            <att name="source_name">z</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>mass_concentration_of_chlorophyll_in_sea_water</sourceName>
+        <destinationName>mass_concentration_of_chlorophyll_in_sea_water</destinationName>
+        <dataType>double</dataType>
+        <sourceAttributes>
+            <att name="_ChunkSizes" type="int">512</att>
+            <att name="_FillValue" type="double">-9999.0</att>
+            <att name="actual_range" type="doubleList">0.8 24.48</att>
+            <att name="ancillary_variables">mass_concentration_of_chlorophyll_in_sea_water_qc_agg mass_concentration_of_chlorophyll_in_sea_water_qc_tests</att>
+            <att name="id">1102389</att>
+            <att name="ioos_category">Other</att>
+            <att name="long_name">Chlorophyll</att>
+            <att name="missing_value" type="double">-9999.0</att>
+            <att name="platform">station</att>
+            <att name="short_name">mass_concentration_of_chlorophyll_in_sea_water</att>
+            <att name="standard_name">mass_concentration_of_chlorophyll_in_sea_water</att>
+            <att name="standard_name_url">http://mmisw.org/ont/cf/parameter/mass_concentration_of_chlorophyll_in_sea_water</att>
+            <att name="units">microg.L-1</att>
+        </sourceAttributes>
+        <addAttributes>
+            <att name="_ChunkSizes">null</att>
+            <att name="colorBarMaximum" type="double">30.0</att>
+            <att name="colorBarMinimum" type="double">0.03</att>
+            <att name="colorBarScale">Log</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>mass_concentration_of_chlorophyll_in_sea_water_qc_agg</sourceName>
+        <destinationName>mass_concentration_of_chlorophyll_in_sea_water_qc_agg</destinationName>
+        <dataType>int</dataType>
+        <sourceAttributes>
+            <att name="_ChunkSizes" type="int">4096</att>
+            <att name="_FillValue" type="int">-127</att>
+            <att name="actual_range" type="intList">2 2</att>
+            <att name="flag_meanings">PASS NOT_EVALUATED SUSPECT FAIL MISSING</att>
+            <att name="flag_values" type="intList">1 2 3 4 9</att>
+            <att name="ioos_category">Other</att>
+            <att name="long_name">Chlorophyll QARTOD Aggregate Quality Flag</att>
+            <att name="missing_value" type="int">-127</att>
+            <att name="short_name">mass_concentration_of_chlorophyll_in_sea_water_qc_agg</att>
+            <att name="standard_name">aggregate_quality_flag</att>
+        </sourceAttributes>
+        <addAttributes>
+            <att name="_ChunkSizes">null</att>
+            <att name="colorBarMaximum" type="double">10.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>mass_concentration_of_chlorophyll_in_sea_water_qc_tests</sourceName>
+        <destinationName>mass_concentration_of_chlorophyll_in_sea_water_qc_tests</destinationName>
+        <dataType>double</dataType>
+        <sourceAttributes>
+            <att name="_ChunkSizes" type="int">512</att>
+            <att name="_FillValue" type="double">0.0</att>
+            <att name="comment">11-character string with results of individual QARTOD tests. 1: Gap Test, 2: Syntax Test, 3: Location Test, 4: Gross Range Test, 5: Climatology Test, 6: Spike Test, 7: Rate of Change Test, 8: Flat-line Test, 9: Multi-variate Test, 10: Attenuated Signal Test, 11: Neighbor Test</att>
+            <att name="flag_meanings">PASS NOT_EVALUATED SUSPECT FAIL MISSING</att>
+            <att name="flag_values" type="intList">1 2 3 4 9</att>
+            <att name="ioos_category">Other</att>
+            <att name="long_name">Chlorophyll QARTOD Individual Tests</att>
+            <att name="short_name">mass_concentration_of_chlorophyll_in_sea_water_qc_tests</att>
+            <att name="standard_name">quality_flag</att>
+        </sourceAttributes>
+        <addAttributes>
+            <att name="_ChunkSizes">null</att>
+            <att name="colorBarMaximum" type="double">10.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sea_water_temperature</sourceName>
+        <destinationName>sea_water_temperature</destinationName>
+        <dataType>double</dataType>
+        <sourceAttributes>
+            <att name="_ChunkSizes" type="int">512</att>
+            <att name="_FillValue" type="double">-9999.0</att>
+            <att name="actual_range" type="doubleList">7.519 18.271</att>
+            <att name="ancillary_variables">sea_water_temperature_qc_agg sea_water_temperature_qc_tests</att>
+            <att name="id">1102387</att>
+            <att name="ioos_category">Other</att>
+            <att name="long_name">Water Temperature</att>
+            <att name="missing_value" type="double">-9999.0</att>
+            <att name="platform">station</att>
+            <att name="short_name">sea_water_temperature</att>
+            <att name="standard_name">sea_water_temperature</att>
+            <att name="standard_name_url">http://mmisw.org/ont/cf/parameter/sea_water_temperature</att>
+            <att name="units">degree_Celsius</att>
+        </sourceAttributes>
+        <addAttributes>
+            <att name="_ChunkSizes">null</att>
+            <att name="colorBarMaximum" type="double">32.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sea_water_temperature_qc_agg</sourceName>
+        <destinationName>sea_water_temperature_qc_agg</destinationName>
+        <dataType>int</dataType>
+        <sourceAttributes>
+            <att name="_ChunkSizes" type="int">4096</att>
+            <att name="_FillValue" type="int">-127</att>
+            <att name="actual_range" type="intList">2 2</att>
+            <att name="flag_meanings">PASS NOT_EVALUATED SUSPECT FAIL MISSING</att>
+            <att name="flag_values" type="intList">1 2 3 4 9</att>
+            <att name="ioos_category">Other</att>
+            <att name="long_name">Water Temperature QARTOD Aggregate Quality Flag</att>
+            <att name="missing_value" type="int">-127</att>
+            <att name="short_name">sea_water_temperature_qc_agg</att>
+            <att name="standard_name">aggregate_quality_flag</att>
+        </sourceAttributes>
+        <addAttributes>
+            <att name="_ChunkSizes">null</att>
+            <att name="colorBarMaximum" type="double">10.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sea_water_temperature_qc_tests</sourceName>
+        <destinationName>sea_water_temperature_qc_tests</destinationName>
+        <dataType>double</dataType>
+        <sourceAttributes>
+            <att name="_ChunkSizes" type="int">512</att>
+            <att name="_FillValue" type="double">0.0</att>
+            <att name="comment">11-character string with results of individual QARTOD tests. 1: Gap Test, 2: Syntax Test, 3: Location Test, 4: Gross Range Test, 5: Climatology Test, 6: Spike Test, 7: Rate of Change Test, 8: Flat-line Test, 9: Multi-variate Test, 10: Attenuated Signal Test, 11: Neighbor Test</att>
+            <att name="flag_meanings">PASS NOT_EVALUATED SUSPECT FAIL MISSING</att>
+            <att name="flag_values" type="intList">1 2 3 4 9</att>
+            <att name="ioos_category">Other</att>
+            <att name="long_name">Water Temperature QARTOD Individual Tests</att>
+            <att name="short_name">sea_water_temperature_qc_tests</att>
+            <att name="standard_name">quality_flag</att>
+        </sourceAttributes>
+        <addAttributes>
+            <att name="_ChunkSizes">null</att>
+            <att name="colorBarMaximum" type="double">10.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sea_surface_height_above_sea_level</sourceName>
+        <destinationName>sea_surface_height_above_sea_level</destinationName>
+        <dataType>double</dataType>
+        <sourceAttributes>
+            <att name="_ChunkSizes" type="int">512</att>
+            <att name="_FillValue" type="double">-9999.0</att>
+            <att name="actual_range" type="doubleList">0.9144173736 2.2468335048</att>
+            <att name="ancillary_variables">sea_surface_height_above_sea_level_qc_agg sea_surface_height_above_sea_level_qc_tests</att>
+            <att name="id">1102385</att>
+            <att name="ioos_category">Other</att>
+            <att name="long_name">Water Level</att>
+            <att name="missing_value" type="double">-9999.0</att>
+            <att name="platform">station</att>
+            <att name="short_name">sea_surface_height_above_sea_level</att>
+            <att name="standard_name">sea_surface_height_above_sea_level</att>
+            <att name="standard_name_url">http://mmisw.org/ont/cf/parameter/sea_surface_height_above_sea_level</att>
+            <att name="units">m</att>
+        </sourceAttributes>
+        <addAttributes>
+            <att name="_ChunkSizes">null</att>
+            <att name="colorBarMaximum" type="double">2.0</att>
+            <att name="colorBarMinimum" type="double">-2.0</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sea_surface_height_above_sea_level_qc_agg</sourceName>
+        <destinationName>sea_surface_height_above_sea_level_qc_agg</destinationName>
+        <dataType>int</dataType>
+        <sourceAttributes>
+            <att name="_ChunkSizes" type="int">4096</att>
+            <att name="_FillValue" type="int">-127</att>
+            <att name="actual_range" type="intList">2 2</att>
+            <att name="flag_meanings">PASS NOT_EVALUATED SUSPECT FAIL MISSING</att>
+            <att name="flag_values" type="intList">1 2 3 4 9</att>
+            <att name="ioos_category">Other</att>
+            <att name="long_name">Water Level QARTOD Aggregate Quality Flag</att>
+            <att name="missing_value" type="int">-127</att>
+            <att name="short_name">sea_surface_height_above_sea_level_qc_agg</att>
+            <att name="standard_name">aggregate_quality_flag</att>
+        </sourceAttributes>
+        <addAttributes>
+            <att name="_ChunkSizes">null</att>
+            <att name="colorBarMaximum" type="double">10.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sea_surface_height_above_sea_level_qc_tests</sourceName>
+        <destinationName>sea_surface_height_above_sea_level_qc_tests</destinationName>
+        <dataType>double</dataType>
+        <sourceAttributes>
+            <att name="_ChunkSizes" type="int">512</att>
+            <att name="_FillValue" type="double">0.0</att>
+            <att name="comment">11-character string with results of individual QARTOD tests. 1: Gap Test, 2: Syntax Test, 3: Location Test, 4: Gross Range Test, 5: Climatology Test, 6: Spike Test, 7: Rate of Change Test, 8: Flat-line Test, 9: Multi-variate Test, 10: Attenuated Signal Test, 11: Neighbor Test</att>
+            <att name="flag_meanings">PASS NOT_EVALUATED SUSPECT FAIL MISSING</att>
+            <att name="flag_values" type="intList">1 2 3 4 9</att>
+            <att name="ioos_category">Other</att>
+            <att name="long_name">Water Level QARTOD Individual Tests</att>
+            <att name="short_name">sea_surface_height_above_sea_level_qc_tests</att>
+            <att name="standard_name">quality_flag</att>
+        </sourceAttributes>
+        <addAttributes>
+            <att name="_ChunkSizes">null</att>
+            <att name="colorBarMaximum" type="double">10.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>station</sourceName>
+        <destinationName>station</destinationName>
+        <dataType>String</dataType>
+        <sourceAttributes>
+            <att name="cf_role">timeseries_id</att>
+            <att name="ioos_category">Identifier</att>
+            <att name="ioos_code">urn:ioos:station:com.axiomdatascience:128550</att>
+            <att name="long_name">Bodega Head Intertidal Shore Station</att>
+            <att name="short_name">bodega-head-intertidal-shore-sta</att>
+            <att name="type">fixed</att>
+        </sourceAttributes>
+        <addAttributes>
+        </addAttributes>
+    </dataVariable>
+</dataset>
+
+

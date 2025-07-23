@@ -1,0 +1,3 @@
+<dataset type="EDDTableFromErddap" datasetID="bodega-head-intertidal-shore-sta_EDDTableFromErddap" active="true">
+  <sourceUrl>http://erddap.cencoos.org/erddap/tabledap/bodega-head-intertidal-shore-sta</sourceUrl>
+</dataset>
