@@ -17,7 +17,7 @@ carpentry: 'incubator'
 # carpentry_description: "Custom Carpentry"
 
 # Overall title for pages.
-title: 'Lesson Title'
+title: 'ERDDAP Copy'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: '2025-07-23'
@@ -27,10 +27,10 @@ keywords: 'software, data, lesson, The Carpentries'
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: 'pre-alpha'
+life_cycle: 'beta'
 
 # License of the lesson materials (recommended CC-BY 4.0)
-license: 'CC-BY 4.0'
+license: 'CC0 1.0'
 
 # Link to the source repository for this lesson
 source: 'https://github.com/MathewBiddle/erddap_copy'
@@ -39,7 +39,7 @@ source: 'https://github.com/MathewBiddle/erddap_copy'
 branch: 'main'
 
 # Who to contact if there are any issues
-contact: 'team@carpentries.org'
+contact: 'mathew.biddle@noaa.gov'
 
 # Navigation ------------------------------------------------
 #

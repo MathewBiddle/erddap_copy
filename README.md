@@ -188,3 +188,10 @@ https://github.com/MathewBiddle/erddap_copy/blob/c99ea4e0a0b758760f3ffeb044df0e6
    1. Compare those to the source and see what's different. http://erddap.cencoos.org/erddap/info/bodega-head-intertidal-shore-sta/index.html
 1. If something breaks?
    1. Check the logs at `/erddap/data/logs/log.txt` or the status page (eg. https://erddap.ioos.us/erddap/status.html)
+
+
+## Deploy docs locally
+
+```r
+sandpaper::serve()
+```
