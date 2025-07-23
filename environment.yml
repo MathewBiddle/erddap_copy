@@ -1,0 +1,11 @@
+name: erddap-copy
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - erddapy
+  - jinja2
+  - pandas
+  - pandoc
+  # R packages.
+  - r-base=4
