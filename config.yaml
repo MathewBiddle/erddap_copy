@@ -66,6 +66,7 @@ contact: 'mathew.biddle@noaa.gov'
 # Order of episodes in your lesson
 episodes: 
 - introduction.Rmd
+- loading-dataset.Rmd
 
 # Information for Learners
 learners: 
