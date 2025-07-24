@@ -16,7 +16,10 @@ the data sets the Learner needs to have installed.
 ## Software Setup
 
 ### Stand up ERDDAP
-1. Identify where to host replicate service
+
+More details about standing up ERDDAP can be found in the [quick start guide for ERDDAP in a Docker Container](https://ioos.github.io/erddap-gold-standard/index.html).
+
+1. Identify where to host the service
    1. If AWS EC2, see <https://erddap.github.io/docs/server-admin/additional-information#amazon>
       1. <details><summary>Here is the system we currently have deployed:</summary>
          
@@ -72,3 +75,9 @@ the data sets the Learner needs to have installed.
    ```bash
    git clone https://github.com/ioos/erddap-gold-standard.git
    ```
+1. Deploy ERDDAP
+   ```bash
+   docker-compose up -d
+   ```
+1. Review your local ERDDAP by navigating to http://localhost:8080/erddap/index.html
+
